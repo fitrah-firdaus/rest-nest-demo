@@ -11,7 +11,7 @@ export class UsersService {
   }
 
   findOne(id: string): User | undefined {
-    return this.users.find(user => user.id === id);
+    return this.users.find((user) => user.id === id);
   }
 
   create(user: Partial<User>): User {
@@ -21,14 +21,14 @@ export class UsersService {
   }
 
   update(id: string, updatedUser: Partial<User>): User | undefined {
-    const index = this.users.findIndex(user => user.id === id);
+    const index = this.users.findIndex((user) => user.id === id);
     if (index === -1) return undefined;
     this.users[index] = { ...this.users[index], ...updatedUser };
     return this.users[index];
   }
 
   delete(id: string): User | undefined {
-    const index = this.users.findIndex(user => user.id === id);
+    const index = this.users.findIndex((user) => user.id === id);
     if (index === -1) return undefined;
     const [deletedUser] = this.users.splice(index, 1);
     return deletedUser;
